@@ -2,13 +2,15 @@ import React from 'react';
 import {Routes, Route } from 'react-router-dom';
 import './App.css';
 import Layout from './components/layout/layout';
+import Home from './pages/home/home';
+import MyPage from './pages/mypage/mypage';
 
 function App() {
   return (
   <Layout>
     <Routes>
-      <Route path="/" element={<h1>Home</h1>} />
-      <Route path="/mypage" element={<h1>About</h1>} />
+      <Route path="/" element= {<Home/>} />
+      <Route path="/mypage" element={<MyPage/>} />
     </Routes>
   </Layout>
   );
