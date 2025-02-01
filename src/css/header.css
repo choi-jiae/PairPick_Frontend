@@ -1,0 +1,39 @@
+@import './font.css';
+
+.header {
+    background-color: #FDFDFD;
+    width: 97%;
+    height: 60px;
+    margin: 1% 1% 1% 1%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #202123;
+    font-family: 'BookkMyungjo-Bd';
+    font-size: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+.menu {
+    text-decoration: none;
+    font-family: 'Pretendard-Regular';
+    color: #202123;
+    font-size: 1rem;
+    margin: 10px 40px 10px 40px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.header-content {
+    width: 40%;
+    display: flex;
+}
