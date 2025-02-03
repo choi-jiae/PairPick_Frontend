@@ -1,0 +1,51 @@
+@import './font.css';
+
+.home {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0 20px;
+}
+
+.play-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.title {
+    font-family: 'Pretendard-Bold';
+    font-size: 1.2rem;
+}
+
+.discribtion {
+    font-family: 'Pretendard-Regular';
+    font-size: 1rem;
+    margin-bottom: 3%;
+}
+
+.mySwiper {
+    position: relative;
+  }
+  
+  .mySwiper::before,
+  .mySwiper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    z-index: 10;
+    pointer-events: none;
+  }
+  
+  .mySwiper::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  }
+  
+  .mySwiper::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  }

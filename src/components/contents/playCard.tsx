@@ -1,17 +1,21 @@
 import React from "react";
+import '../../css/playCard.css';
 
 interface PlayCardProps {
+    number: number;
     image: string;
     title: string;
-    description: string;
+    genre: string;
+    review_num: number;
 }
 
-const PlayCard = ({ image, title, description }: PlayCardProps) => {
+const PlayCard = ({ number, image, title, genre, review_num }: PlayCardProps) => {
     return (
         <div className="play-card">
-        <img src={image} alt={title} />
-        <h3>{title}</h3>
-        <p>{description}</p>
+            <img src={image} alt={title} />
+            <h3>{number}. {title}</h3>
+            <p>{genre}</p>
+            <p>페어 리뷰 {review_num}+</p>
         </div>
     );
     }
