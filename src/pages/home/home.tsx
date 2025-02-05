@@ -38,6 +38,42 @@ const playList = [
         title: "고스트 베이커리",
         genre: "뮤지컬",
         review_num: 99
+    },
+    {
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB-GYEs3Kxv9mwQU1oFTFvDEdsifBhgl3WNQ&s",
+        title: "고스트 베이커리",
+        genre: "뮤지컬",
+        review_num: 99
+    },
+    {
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB-GYEs3Kxv9mwQU1oFTFvDEdsifBhgl3WNQ&s",
+        title: "고스트 베이커리",
+        genre: "뮤지컬",
+        review_num: 99
+    },
+    {
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB-GYEs3Kxv9mwQU1oFTFvDEdsifBhgl3WNQ&s",
+        title: "고스트 베이커리",
+        genre: "연극",
+        review_num: 99
+    },
+    {
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB-GYEs3Kxv9mwQU1oFTFvDEdsifBhgl3WNQ&s",
+        title: "고스트 베이커리",
+        genre: "뮤지컬",
+        review_num: 99
+    },
+    {
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB-GYEs3Kxv9mwQU1oFTFvDEdsifBhgl3WNQ&s",
+        title: "고스트 베이커리",
+        genre: "뮤지컬",
+        review_num: 99
+    },
+    {
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB-GYEs3Kxv9mwQU1oFTFvDEdsifBhgl3WNQ&s",
+        title: "고스트 베이커리",
+        genre: "뮤지컬",
+        review_num: 99
     }
 ];
 
@@ -53,13 +89,14 @@ const Home = () => {
                 </div>
                     <div className="play-cards">
                         <Swiper
-                        spaceBetween={50}
-                        slidesPerView={3}
-                        modules={[Navigation, Pagination]}
-                        navigation={true}
-                        pagination={{ clickable: true }}
-                        className="mySwiper"
-                        >
+                            spaceBetween={30}
+                            slidesPerView={6}
+                            modules={[Navigation]}
+                            navigation={true}
+                            className="mySwiper"
+                            slidesOffsetAfter={100}
+                            slidesOffsetBefore={100}
+                            >
                             {
                             playList.map((play, index) => (
                                 <SwiperSlide key={index}>
