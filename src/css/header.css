@@ -3,9 +3,10 @@
 header {
     width: 97%;
     height: 60px;
-    margin: 1% 1% 1% 1%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
@@ -36,25 +37,31 @@ nav {
 }
 
 .header-start {
-    width: 40%;
+    width: 50%;
     display: flex;
     min-width: 245px;
 }
 .header-end {
-    width: 40%;
+    width: 50%;
     display: flex;
     min-width: 245px;
     justify-content: flex-end;
+    align-items: center;
+}
+
+.search {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
 }
 
 @media screen and (max-width: 670px) {
     nav {
         display: none;
     }
-}
-
-@media screen and (max-width: 430px) {
-    .header-end {
+    .search {
         display: none;
     }
 }
