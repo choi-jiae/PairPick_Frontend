@@ -1,0 +1,53 @@
+.play-card {
+    width: 193px;
+    height: 370px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 10px 10px 10px;
+    transition: transform 0.3s ease;
+}
+
+.play-card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.play-card h3 {
+    font-size: 1.2rem;
+    font-family: 'Pretendard-Bold';
+    color: #202123;
+    width: 100%;
+    margin-top: 13px;
+    margin-bottom: 10px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.play-card p {
+    font-size: 1rem;
+    font-family: 'Pretendard-Regular';
+    color: #202123;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.play-card .play-card-info {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 10%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.play-card:hover {
+    transform: scale(1.1);
+}

@@ -6,8 +6,8 @@ import '../../css/font.css';
 
 const Header = () => {
   return (
-    <header className="header">
-      <div className='header-content'>
+    <header>
+      <div className='header-start'>
         <div className='logo'>
           PairPick
         </div>
@@ -16,7 +16,8 @@ const Header = () => {
           <a href="/mypage" className='menu'>마이페이지</a>
         </nav>
       </div>
-      <div className='header-content' style={{justifyContent: 'flex-end'}}>
+      <div className='header-end'>
+        <div className='search'>
         <Paper 
           component="form"
           sx={{ 
@@ -48,6 +49,7 @@ const Header = () => {
             <SearchIcon />
           </IconButton>
         </Paper>
+        </div>
         <Button 
           variant="outlined" 
           sx={{

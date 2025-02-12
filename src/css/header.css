@@ -1,18 +1,18 @@
 @import './font.css';
 
-.header {
-    background-color: #FDFDFD;
+header {
     width: 97%;
     height: 60px;
-    margin: 1% 1% 1% 1%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
 
 .logo {
     color: #202123;
     font-family: 'BookkMyungjo-Bd';
-    font-size: 30px;
+    font-size: 1.5rem;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -27,13 +27,39 @@ nav {
     font-family: 'Pretendard-Regular';
     color: #202123;
     font-size: 1rem;
-    margin: 10px 40px 10px 40px;
+    margin: 10px 0px;
     text-align: center;
     padding-left: 10px;
     padding-right: 10px;
+    white-space: nowrap;
+    display: inline-block;
+    width: 87px;
 }
 
-.header-content {
-    width: 40%;
+.header-start {
+    width: 50%;
     display: flex;
+}
+.header-end {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+@media screen and (max-width: 670px) {
+    nav {
+        display: none;
+    }
+    .search {
+        display: none;
+    }
 }
