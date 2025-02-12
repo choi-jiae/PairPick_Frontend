@@ -6,7 +6,7 @@
     flex-direction: column;
     display: flex;
     cursor: pointer;
-    padding: 0px 10px 0px 10px;
+    padding: 10px 10px 10px 10px;
     transition: transform 0.3s ease;
 }
 

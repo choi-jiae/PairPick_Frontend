@@ -75,7 +75,7 @@ const reviewList = [
     title: "고스트 베이커리",
     genre: "뮤지컬",
     pair: ["박지연", "전성우", "신은총"],
-    feature: ["안정감 있어요🛏️", "귀여워요😍"],
+    feature: ["안정감 있어요🛏️", "귀여워요😍", "미러링 천재예요"],
     ratings: [5.0, 5.0, 5.0]
     },
     {
@@ -98,7 +98,11 @@ const reviewList = [
 const Home = () => {
 
     const slideNum = () => {
-        if (window.innerWidth < 855) {
+        if (window.innerWidth < 430) {
+            return 1;
+        } else if (window.innerWidth < 630) {
+            return 2;
+        } else if (window.innerWidth < 855) {
             return 3;
         } else if (window.innerWidth < 1230) {
             return 4;
@@ -125,19 +129,20 @@ const Home = () => {
             <div className="discribtion">
                 누구로 볼까? 고민된다면 페어픽! 최애 페어의 매력을 공유해보세요 ✨
             </div>
-            <div>
+            <div className ="contents">
                 <div className="title">
                     지금 인기있는 공연
                 </div>
                     <div className="play-cards">
                         <Swiper
                             spaceBetween={30}
-                            slidesPerView={slideNum()}
+                            slidesPerView={slidesPerView}
+                            centeredSlides={slidesPerView === 1}
                             modules={[Navigation]}
                             navigation={true}
                             className="mySwiper"
-                            slidesOffsetAfter={100}
-                            slidesOffsetBefore={100}
+                            slidesOffsetAfter={slidesPerView === 1? 60: 100}
+                            slidesOffsetBefore={slidesPerView === 1? 60: 100}
                             >
                             {
                             playList.map((play, index) => (
@@ -155,7 +160,7 @@ const Home = () => {
                         </Swiper>
                 </div>
             </div>
-            <div>
+            <div className="contents">
                 <div className="title">
                     지금 인기있는 페어
                 </div>

@@ -1,17 +1,27 @@
 .review-card {
-    width: 418px;
-    height: 151px;
+    width: 100%;
+    max-width: 418px;
+    height: auto;
     display: flex;
-    justify-self: space-between;
+    justify-content: space-between;
     align-items: center;
     border-radius: 10px;
     background: #FDFDFD;
     box-shadow: 0px 0px 4px 2px rgba(186, 186, 186, 0.20);
+    padding: 2%;
+    box-sizing: border-box;
 }
 
 .review-card-contents {
     display: flex;
     flex-direction: column;
+    width: 50%;
+}
+
+.chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 .review-card h3 {
@@ -19,7 +29,7 @@
     font-family: 'Pretendard-Bold';
     color: #202123;
     width: 100%;
-    margin-top: 13px;
+    margin-top: 0px;
     margin-bottom: 10px;
     text-align: left;
     white-space: nowrap;
@@ -45,7 +55,11 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.rating {
     margin-top: 10px;
+    gap: 5px;
 }
 
 .total-score {
@@ -56,7 +70,7 @@
 }
 
 .score {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-family: 'Pretendard-Regular';
     color: #202123;
     margin-left: 5px;

@@ -3,10 +3,10 @@
 header {
     width: 97%;
     height: 60px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
 }
 
 .logo {
@@ -39,12 +39,10 @@ nav {
 .header-start {
     width: 50%;
     display: flex;
-    min-width: 245px;
 }
 .header-end {
     width: 50%;
     display: flex;
-    min-width: 245px;
     justify-content: flex-end;
     align-items: center;
 }

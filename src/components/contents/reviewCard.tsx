@@ -18,11 +18,12 @@ const ReviewCard = ({title, genre, pair, feature, ratings}: ReviewCardProps) => 
     const play_rating = ['연기합', '대사합', '노선합'];
 
     return (
-        <div>
+     
             <div className="review-card">
                 <div className="review-card-contents">
                     <h3>{title}</h3>
                     <h4>{pair.join(', ')}</h4>
+                    <div className="chip-container">
                     {
                         feature.map((feature, index) => (
                             <Chip 
@@ -31,9 +32,15 @@ const ReviewCard = ({title, genre, pair, feature, ratings}: ReviewCardProps) => 
                                 variant="outlined"
                                 style={{
                                     border: "0.5px solid #DA98E7",
+                                    height: "20px",
+                                    marginBottom: "2px",
+                                    fontSize: "0.7rem",
+                                    fontFamily: "Pretendard-Regular",
+                                    
                                 }} />
                         ))
                     }
+                    </div>
                 </div>
                 <div className="review-card-contents">
                     <div className="total-rating">
@@ -47,7 +54,7 @@ const ReviewCard = ({title, genre, pair, feature, ratings}: ReviewCardProps) => 
                                 <div className='review-item'>{item}</div>
                                 <div
                                     style={{
-                                        width: "105px",
+                                        flexGrow: 1,
                                         height: "5px",
                                         backgroundColor: index === 0? "#FFACE1" : index === 1? "#DA98E7" : "#AD67BB",
                                         borderRadius: "20px",
@@ -61,7 +68,7 @@ const ReviewCard = ({title, genre, pair, feature, ratings}: ReviewCardProps) => 
                                 <div className="review-item">{item}</div>
                                 <div
                                     style={{
-                                        width: "105px",
+                                        flexGrow: 1,
                                         height: "5px",
                                         backgroundColor: index === 0? "#FFACE1" : index === 1? "#DA98E7" : "#AD67BB",
                                         borderRadius: "20px",
@@ -71,13 +78,10 @@ const ReviewCard = ({title, genre, pair, feature, ratings}: ReviewCardProps) => 
                                 </div>
                             </div>))
                     }
-                                    
-
-
 
                 </div>
             </div>
-        </div>
+        
 
     )
 };
