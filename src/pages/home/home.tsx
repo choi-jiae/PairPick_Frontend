@@ -9,60 +9,70 @@ import React, { useState, useEffect } from 'react';
 
 const playList = [
     {
+        id: 1,
         image: "https://m.doosanartcenter.com/upload/contentsImage/24111911355853723845.jpg",
         title: "고스트 베이커리",
         genre: "뮤지컬",
         review_num: 99
     },
     {
+        id: 2,
         image: "https://m.doosanartcenter.com/upload/contentsImage/24111911355853723845.jpg",
         title: "고스트 베이커리",
         genre: "뮤지컬",
         review_num: 99
     },
     {
+        id: 3,
         image: "https://m.doosanartcenter.com/upload/contentsImage/24111911355853723845.jpg",
         title: "고스트 베이커리",
         genre: "뮤지컬",
         review_num: 99
     },
     {
+        id: 4,
         image: "https://m.doosanartcenter.com/upload/contentsImage/24111911355853723845.jpg",
         title: "고스트 베이커리",
         genre: "뮤지컬",
         review_num: 99
     },
     {
+        id: 5,
         image: "https://m.doosanartcenter.com/upload/contentsImage/24111911355853723845.jpg",
         title: "고스트 베이커리",
         genre: "뮤지컬",
         review_num: 99
     },
     {
+        id: 6,
         image: "https://m.doosanartcenter.com/upload/contentsImage/24111911355853723845.jpg",
         title: "고스트 베이커리",
         genre: "뮤지컬",
         review_num: 99
     },
     {
+        id: 7,
         image: "https://m.doosanartcenter.com/upload/contentsImage/24111911355853723845.jpg",
         title: "고스트 베이커리",
         genre: "연극",
         review_num: 99
     },
     {
+        id: 8,
         image: "https://m.doosanartcenter.com/upload/contentsImage/24111911355853723845.jpg",
         title: "고스트 베이커리",
         genre: "뮤지컬",
         review_num: 99
     },
     {
+        id: 9,
         image: "https://m.doosanartcenter.com/upload/contentsImage/24111911355853723845.jpg",
         title: "고스트 베이커리",
         genre: "뮤지컬",
         review_num: 99
     },
     {
+        id: 10,
         image: "https://m.doosanartcenter.com/upload/contentsImage/24111911355853723845.jpg",
         title: "고스트 베이커리",
         genre: "뮤지컬",
@@ -149,6 +159,7 @@ const Home = () => {
                                 <SwiperSlide key={index}>
                                     <PlayCard
                                     number={index + 1}
+                                    id={play.id}
                                     image={play.image}
                                     title={play.title}
                                     genre={play.genre}
