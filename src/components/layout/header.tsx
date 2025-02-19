@@ -55,7 +55,7 @@ const Header = () => {
           sx={{
             color: '#202123',
             borderColor: '#B8B8B8',
-            fontFamily: 'Pretendard',
+            fontFamily: 'Pretendard-Regular',
             fontSize: '1rem',
             borderRadius: '10px',
             padding: '5px 10px',
