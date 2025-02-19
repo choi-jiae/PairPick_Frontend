@@ -11,7 +11,7 @@ const PlayReview = () => {
     id: 1,
     image:
       "https://i.namu.wiki/i/nmf8-BLI6hk8O9DJkWtZv6QaFk8RRG8l7Xq2DfK7ZTDoFzOJxoT8MU5bMIi1AGEoPplPlWsdMvygkj5e1Vuo9A.webp",
-    title: "고스트 베이커리",
+    title: "고스트 베이커리리리리리ㅣ리리리릴리",
     genre: "뮤지컬",
     period: "2021.09.01 ~ 2021.09.30",
     location: "두산 아트센터 연강홀",
@@ -130,25 +130,23 @@ const PlayReview = () => {
           </Button>
         </div>
         <div className="review-top-end">
-          <div className="booking-button">
-            {play.booking.map((bookingUrl) => {
-              const domain = getBookingDomain(bookingUrl);
-              return domain ? (
-                <Button
-                  className="booking-button"
-                  sx={{
-                    fontFamily: "Pretendard-Bold",
-                    backgroundColor: "white",
-                    color: "black",
-                    backgroundImage: `url(${getBookingImage(bookingUrl)})`,
-                    backgroundSize: "contain",
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "center",
-                  }}
-                />
-              ) : null;
-            })}
-          </div>
+          {play.booking.map((bookingUrl) => {
+            const domain = getBookingDomain(bookingUrl);
+            return domain ? (
+              <Button
+                className="booking-button"
+                sx={{
+                  fontFamily: "Pretendard-Bold",
+                  backgroundColor: "white",
+                  color: "black",
+                  backgroundImage: `url(${getBookingImage(bookingUrl)})`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                }}
+              />
+            ) : null;
+          })}
         </div>
       </div>
     </div>
