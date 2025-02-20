@@ -3,14 +3,14 @@ import { useParams } from "react-router-dom";
 import "../../css/playReview.css";
 import ColorThief from "colorthief";
 import { Button } from "@mui/material";
-import { get } from "http";
+import RecommenedCard from "../../components/contents/recommendCard";
+import { useHeaderStore } from "../../store/headerStore";
 
 const PlayReview = () => {
   const { id } = useParams<{ id: string }>();
   const play = {
     id: 1,
-    image:
-      "https://i.namu.wiki/i/nmf8-BLI6hk8O9DJkWtZv6QaFk8RRG8l7Xq2DfK7ZTDoFzOJxoT8MU5bMIi1AGEoPplPlWsdMvygkj5e1Vuo9A.webp",
+    image: "https://ticketimage.interpark.com/Play/image/small/24/24016412.gif",
     title: "고스트 베이커리리리리리ㅣ리리리릴리",
     genre: "뮤지컬",
     period: "2021.09.01 ~ 2021.09.30",
@@ -23,30 +23,65 @@ const PlayReview = () => {
     ],
   };
 
+  const recommendList = [
+    {
+      title: "고스트 베이커리",
+      genre: "뮤지컬",
+      pair: ["박지연", "전성우", "신은총"],
+      pair_img: [
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
+      ],
+      feature: ["안정감 있어요🛏️", "귀여워요😍", "미러링 천재예요"],
+      ratings: [5.0, 5.0, 5.0],
+    },
+    {
+      title: "고스트 베이커리",
+      genre: "연극극",
+      pair: [
+        "박지연",
+        "전성우",
+        "신은총",
+        "박지연",
+        "전성우",
+        "신은총",
+        "박지연",
+        "전성우",
+        "신은총",
+      ],
+      pair_img: [
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
+      ],
+      feature: ["안정감 있어요🛏️", "귀여워요😍"],
+      ratings: [5.0, 5.0, 5.0],
+    },
+    {
+      title: "고스트 베이커리",
+      genre: "뮤지컬",
+      pair: ["박지연", "전성우", "신은총"],
+      pair_img: [
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
+      ],
+      feature: ["안정감 있어요🛏️", "귀여워요😍"],
+      ratings: [5.0, 5.0, 5.0],
+    },
+  ];
+
   const [isDarkImage, setIsDarkImage] = React.useState(false);
   const [color, setColor] = React.useState([0, 0, 0]);
+  const setWhiteHeader = useHeaderStore((state) => state.setWhiteHeader);
 
-  // useEffect(() => {
-  //     const colorThief = new ColorThief();
-  //     const img = new Image();
-
-  //     img.addEventListener('load', () => {
-  //         const result = colorThief.getColor(img);
-  //         console.log(result);
-  //     });
-
-  //     // img.onload = () => {
-  //     //     const result = colorThief.getColor(img);
-  //     //     const [r, g, b] = result;
-  //     //     console.log('r', r, 'g', g, 'b', b);
-  //     //     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-  //     //     setIsDarkImage(brightness < 125);
-  //     //     console.log('color', r, g, b);
-  //     // };
-  //     img.src = 'http://cors-anywhere.herokuapp.com/'+play.image;
-  //     img.crossOrigin = 'Anonymous';
-
-  // }, [play.image]);
   const fetchImage = async () => {
     try {
       const response = await fetch(
@@ -94,9 +129,19 @@ const PlayReview = () => {
     }
   };
 
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
+    setWhiteHeader(scrollPosition > 260);
+  };
+
   useEffect(() => {
     fetchImage();
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [play.image]);
+
   return (
     <div className="play-review">
       <div
@@ -148,6 +193,26 @@ const PlayReview = () => {
             ) : null;
           })}
         </div>
+      </div>
+      <div className="review-bottom">
+        <div className="recommend-title">추천하는 페어</div>
+        <div className="recommend-cards">
+          {recommendList.map((recommend, index) => (
+            <RecommenedCard
+              key={index}
+              title={recommend.title}
+              genre={recommend.genre}
+              pair={recommend.pair}
+              pair_img={recommend.pair_img}
+              feature={recommend.feature}
+              ratings={recommend.ratings}
+            />
+          ))}
+        </div>
+        <div className="review-title">리뷰</div>
+        <div className="review-cards"></div>
+        <div className="actor-title">배우 코멘트</div>
+        <div className="actor-cards"></div>
       </div>
     </div>
   );

@@ -123,6 +123,13 @@
     width: 64px;
 }
 
+.recommend-title,
+.review-title,
+.actor-title {
+    font-family: 'Pretendard-Bold';
+    font-size: 1.2rem;
+}
+
 @media screen and (max-width: 670px) {
     .review-top-end {
         display: none;
