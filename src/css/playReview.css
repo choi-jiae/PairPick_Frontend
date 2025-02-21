@@ -124,10 +124,54 @@
 }
 
 .recommend-title,
-.review-title,
+.pair-title,
 .actor-title {
     font-family: 'Pretendard-Bold';
     font-size: 1.2rem;
+}
+
+.recommend-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 2% 2%;
+}
+
+.pair-title-sort-more {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 2%;
+}
+
+.pair-title-sort {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 41px;
+}
+
+.pair-sort {
+    height: 35px;
+}
+
+.pair-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.pair-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+    gap: 10px;
+    padding: 2% 2%;
+    width: 100%;
+    place-items: center;
 }
 
 @media screen and (max-width: 670px) {

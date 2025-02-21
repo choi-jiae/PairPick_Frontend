@@ -100,9 +100,9 @@ const RecommenedCard = ({
                 variant="outlined"
                 style={{
                   border: "0.5px solid #DA98E7",
-                  height: "20px",
+                  height: "25px",
                   marginBottom: "2px",
-                  fontSize: "0.7rem",
+                  fontSize: "0.8rem",
                   fontFamily: "Pretendard-Regular",
                 }}
               />
