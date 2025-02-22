@@ -1,0 +1,41 @@
+.actor-review-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    justify-items: center;
+}
+
+.role {
+    font-size: 1rem;
+    font-family: 'Pretendard-Bold';
+    
+}
+
+.actors {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.actor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.actor img {
+    max-width: 180px;
+    max-height: 180px;
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.actor-name {
+    font-size: 1rem;
+    font-family: 'Pretendard-Regular';
+}

@@ -7,7 +7,7 @@ import RecommenedCard from "../../components/contents/recommendCard";
 import PairReviewCard from "../../components/contents/pairReviewCard";
 import { useHeaderStore } from "../../store/headerStore";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-
+import ActorReviewCard from "../../components/contents/actorReviewCard";
 const PlayReview = () => {
   const { id } = useParams<{ id: string }>();
   const play = {
@@ -201,53 +201,40 @@ const PlayReview = () => {
       user_name: "jiaejiae",
       likes: 12,
     },
-    {
-      title: "고스트 베이커리",
-      genre: "뮤지컬",
-      pair: ["박지연", "전성우", "신은총"],
-      pair_img: [
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
-      ],
-      feature: ["안정감 있어요🛏️", "귀여워요😍"],
-      ratings: [5.0, 5.0, 5.0],
-      review_text: "너무 좋아요",
-      user_name: "jiaejiae",
-      likes: 12,
-    },
-    {
-      title: "고스트 베이커리",
-      genre: "뮤지컬",
-      pair: ["박지연", "전성우", "신은총"],
-      pair_img: [
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
-      ],
-      feature: ["안정감 있어요🛏️", "귀여워요😍"],
-      ratings: [5.0, 5.0, 5.0],
-      review_text: "너무 좋아요",
-      user_name: "jiaejiae",
-      likes: 12,
-    },
-    {
-      title: "고스트 베이커리",
-      genre: "뮤지컬",
-      pair: ["박지연", "전성우", "신은총"],
-      pair_img: [
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
-      ],
-      feature: ["안정감 있어요🛏️", "귀여워요😍"],
-      ratings: [5.0, 5.0, 5.0],
-      user_name: "jiaejiae",
-      review_text: "너무 좋아요",
-      likes: 12,
-    },
   ];
 
+  const actorReviewCardList = [
+    {
+      role: "유령",
+      actor_ids: [1, 2, 3],
+      actor_names: ["송원근", "전성우", "이재환"],
+      actor_imgs: [
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
+      ],
+    },
+    {
+      role: "유령",
+      actor_ids: [1, 2, 3],
+      actor_names: ["송원근", "전성우", "이재환"],
+      actor_imgs: [
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
+      ],
+    },
+    {
+      role: "유령",
+      actor_ids: [1, 2, 3],
+      actor_names: ["송원근", "전성우", "이재환"],
+      actor_imgs: [
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
+      ],
+    },
+  ];
   const [isDarkImage, setIsDarkImage] = React.useState(false);
   const [color, setColor] = React.useState([0, 0, 0]);
   const setWhiteHeader = useHeaderStore((state) => state.setWhiteHeader);
@@ -474,7 +461,17 @@ const PlayReview = () => {
           </div>
         </div>
         <div className="actor-title">배우 코멘트</div>
-        <div className="actor-cards"></div>
+        <div className="actor-cards">
+          {actorReviewCardList.map((actorReviewCard, index) => (
+            <ActorReviewCard
+              key={index}
+              role={actorReviewCard.role}
+              actor_ids={actorReviewCard.actor_ids}
+              actor_names={actorReviewCard.actor_names}
+              actor_imgs={actorReviewCard.actor_imgs}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
