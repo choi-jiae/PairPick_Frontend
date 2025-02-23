@@ -93,6 +93,7 @@ const PlayReview = () => {
       feature: ["안정감 있어요🛏️", "귀여워요😍"],
       ratings: [5.0, 5.0, 5.0],
       review_text: "너무 좋아요",
+      user_id: 1,
       user_name: "jiaejiae",
       likes: 12,
     },
@@ -108,6 +109,7 @@ const PlayReview = () => {
       feature: ["안정감 있어요🛏️", "귀여워요😍"],
       ratings: [5.0, 5.0, 5.0],
       review_text: "너무 좋아요",
+      user_id: 1,
       user_name: "jiaejiae",
       likes: 12,
     },
@@ -123,6 +125,7 @@ const PlayReview = () => {
       feature: ["안정감 있어요🛏️", "귀여워요😍"],
       ratings: [5.0, 5.0, 5.0],
       review_text: "너무 좋아요",
+      user_id: 12,
       user_name: "jiaejiae",
       likes: 12,
     },
@@ -138,6 +141,7 @@ const PlayReview = () => {
       feature: ["안정감 있어요🛏️", "귀여워요😍"],
       ratings: [5.0, 5.0, 5.0],
       review_text: "너무 좋아요",
+      user_id: 13,
       user_name: "jiaejiae",
       likes: 12,
     },
@@ -153,6 +157,7 @@ const PlayReview = () => {
       feature: ["안정감 있어요🛏️", "귀여워요😍"],
       ratings: [5.0, 5.0, 5.0],
       review_text: "너무 좋아요",
+      user_id: 14,
       user_name: "jiaejiae",
       likes: 12,
     },
@@ -168,6 +173,7 @@ const PlayReview = () => {
       feature: ["안정감 있어요🛏️", "귀여워요😍"],
       ratings: [5.0, 5.0, 5.0],
       review_text: "너무 좋아요",
+      user_id: 15,
       user_name: "jiaejiae",
       likes: 12,
     },
@@ -183,6 +189,7 @@ const PlayReview = () => {
       feature: ["안정감 있어요🛏️", "귀여워요😍"],
       ratings: [5.0, 5.0, 5.0],
       review_text: "너무 좋아요",
+      user_id: 16,
       user_name: "jiaejiae",
       likes: 12,
     },
@@ -198,6 +205,7 @@ const PlayReview = () => {
       feature: ["안정감 있어요🛏️", "귀여워요😍"],
       ratings: [5.0, 5.0, 5.0],
       review_text: "너무 좋아요",
+      user_id: 17,
       user_name: "jiaejiae",
       likes: 12,
     },
@@ -346,15 +354,16 @@ const PlayReview = () => {
         </div>
         <div className="review-top-end">
           {play.booking.map((bookingUrl) => {
-            const domain = getBookingDomain(bookingUrl);
-            return domain ? (
+            const bookingImage = getBookingImage(bookingUrl);
+            return bookingImage ? (
               <Button
                 className="booking-button"
+                onClick={() => window.open(bookingUrl, "_blank")}
                 sx={{
                   fontFamily: "Pretendard-Bold",
                   backgroundColor: "white",
                   color: "black",
-                  backgroundImage: `url(${getBookingImage(bookingUrl)})`,
+                  backgroundImage: `url(${bookingImage})`,
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -367,17 +376,21 @@ const PlayReview = () => {
       <div className="review-bottom">
         <div className="recommend-title">추천하는 페어</div>
         <div className="recommend-cards">
-          {recommendList.map((recommend, index) => (
-            <RecommenedCard
-              key={index}
-              title={recommend.title}
-              genre={recommend.genre}
-              pair={recommend.pair}
-              pair_img={recommend.pair_img}
-              feature={recommend.feature}
-              ratings={recommend.ratings}
-            />
-          ))}
+          {recommendList.length === 0 ? (
+            <div className="no-review">아직 작성된 리뷰가 없습니다.</div>
+          ) : (
+            recommendList.map((recommend, index) => (
+              <RecommenedCard
+                key={index}
+                title={recommend.title}
+                genre={recommend.genre}
+                pair={recommend.pair}
+                pair_img={recommend.pair_img}
+                feature={recommend.feature}
+                ratings={recommend.ratings}
+              />
+            ))
+          )}
         </div>
         <div className="pair-title-sort-more">
           <div className="pair-title-sort">
@@ -444,22 +457,28 @@ const PlayReview = () => {
             페어 리뷰 더보기
           </Button>
         </div>
-        <div className="pair-cards">
-          <div className="pair-cards-grid">
-            {pairReviewList.map((pairReview, index) => (
-              <PairReviewCard
-                key={index}
-                genre={pairReview.genre}
-                pair={pairReview.pair}
-                feature={pairReview.feature}
-                ratings={pairReview.ratings}
-                review_text={pairReview.review_text}
-                user_name={pairReview.user_name}
-                likes={pairReview.likes}
-              />
-            ))}
+        {pairReviewList.length === 0 ? (
+          <div className="no-review">아직 작성된 리뷰가 없습니다.</div>
+        ) : (
+          <div className="pair-cards">
+            <div className="pair-cards-grid">
+              {pairReviewList.map((pairReview, index) => (
+                <PairReviewCard
+                  key={index}
+                  genre={pairReview.genre}
+                  pair={pairReview.pair}
+                  feature={pairReview.feature}
+                  ratings={pairReview.ratings}
+                  review_text={pairReview.review_text}
+                  user_id={pairReview.user_id}
+                  user_name={pairReview.user_name}
+                  likes={pairReview.likes}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
+
         <div className="actor-title">배우 코멘트</div>
         <div className="actor-cards">
           {actorReviewCardList.map((actorReviewCard, index) => (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../css/pairReviewCard.css";
-import { Chip, IconButton } from "@mui/material";
+import { Chip, IconButton, Menu, MenuItem } from "@mui/material";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -12,6 +12,7 @@ interface PairReviewCardProps {
   feature: Array<string>;
   ratings: Array<number>;
   review_text: string;
+  user_id: number;
   user_name: string;
   likes: number;
 }
@@ -22,6 +23,7 @@ const PairReviewCard = ({
   feature,
   ratings,
   review_text,
+  user_id,
   user_name,
   likes,
 }: PairReviewCardProps) => {
@@ -29,10 +31,21 @@ const PairReviewCard = ({
   const [liked, setLiked] = useState(false);
   const musical_rating = ["연기합", "넘버합", "노선합"];
   const play_rating = ["연기합", "대사합", "노선합"];
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
 
+  const myId = 1; // 로그인한 유저의 id를 받아와야 함
   // like 업데이트 할 수 있도록 변경
   const likeClicked = () => {
     setLiked(!liked);
+  };
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(null);
   };
 
   return (
@@ -60,6 +73,10 @@ const PairReviewCard = ({
                   ))}
             </div>
             <IconButton
+              aria-controls={open ? "review-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
               style={{
                 color: "#666666",
                 padding: "0",
@@ -68,6 +85,48 @@ const PairReviewCard = ({
             >
               <MoreVertIcon />
             </IconButton>
+            <Menu
+              id="review-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "sort-button",
+              }}
+            >
+              {myId === user_id ? (
+                <div>
+                  <MenuItem
+                    onClick={handleClose}
+                    sx={{
+                      fontFamily: "Pretendard-Regular",
+                      fontSize: "1rem",
+                    }}
+                  >
+                    수정
+                  </MenuItem>
+                  <MenuItem
+                    onClick={handleClose}
+                    sx={{
+                      fontFamily: "Pretendard-Regular",
+                      fontSize: "1rem",
+                    }}
+                  >
+                    삭제
+                  </MenuItem>
+                </div>
+              ) : (
+                <MenuItem
+                  onClick={handleClose}
+                  sx={{
+                    fontFamily: "Pretendard-Regular",
+                    fontSize: "1rem",
+                  }}
+                >
+                  신고
+                </MenuItem>
+              )}
+            </Menu>
           </div>
         </div>
         <div className="pair-name">{pair.join(", ")}</div>

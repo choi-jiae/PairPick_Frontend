@@ -13,9 +13,10 @@
 
 .actors {
     display: flex;
-    gap: 5px;
+    gap: 7px;
     align-items: center;
     justify-content: center;
+    margin-bottom: 70px;
 }
 
 .actor {
