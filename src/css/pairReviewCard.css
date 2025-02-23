@@ -1,0 +1,136 @@
+.pair-card {
+    width: 325px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    background: #FDFDFD;
+    box-shadow: 0px 0px 4px 2px rgba(186, 186, 186, 0.20);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.pair-card-contents {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.pair-card-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+.pair-card-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 80%;
+}
+
+.pair-ratings {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    gap: 9px;
+    justify-content: flex-start;
+}
+
+.pair-card-top-right {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.pair-name {
+    font-size: 0.9rem;
+    font-family: 'Pretendard-Bold';
+    color: #202123;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.total-rating,
+.rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.rating {
+    gap: 5px;
+}
+
+.total-score {
+    font-size: 1rem;
+    font-family: 'Pretendard-Bold';
+    color: #202123;
+    margin-left: 5px;
+}
+
+.score {
+    font-size: 0.8rem;
+    font-family: 'Pretendard-Regular';
+    color: #202123;
+}
+
+.rating-item {
+    font-size: 0.8rem;
+    font-family: 'Pretendard-Regular';
+    color: #202123;
+}
+
+.pair-review-text {
+    font-size: 0.8rem;
+    font-family: 'Pretendard-Regular';
+    color: #202123;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-name {
+    font-size: 0.7rem;
+    font-family: 'Pretendard-Regular';
+    color: #8a8a8a;
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+.likes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.likes-num {
+    font-size: 0.8rem;
+    font-family: 'Pretendard-Regular';
+    color: #202123;
+}

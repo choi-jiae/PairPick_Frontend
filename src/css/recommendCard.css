@@ -1,56 +1,79 @@
-.review-card {
+.recommend-card {
     width: 100%;
-    max-width: 418px;
-    height: 160px;
+    min-width: 340px;
+    height: auto;
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
     border-radius: 10px;
     background: #FDFDFD;
     box-shadow: 0px 0px 4px 2px rgba(186, 186, 186, 0.20);
-    padding: 1%;
+    padding: 10px;
     box-sizing: border-box;
 }
 
-.review-card-contents-left {
+.recommend-card-contents {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
 }
 
-.review-card-contents-right {
+.recommend-card-top {
     display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: 100%;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+.recommend-card-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.pair-imgs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    
+}
+
+.pair-imgs img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
 .chip-container {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+    width: 50%;
 }
 
-.review-card h3 {
-    font-size: 1.2rem;
+.recommend-card-ratings {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+
+.pair-name {
+    font-size: 1rem;
     font-family: 'Pretendard-Bold';
     color: #202123;
     width: 100%;
-    margin-top: 0px;
+    margin-top: 13px;
     margin-bottom: 10px;
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.review-card h4 {
-    font-size: 0.8rem;
-    font-family: 'Pretendard-Regular';
-    color: #202123;
-    margin-top:0;
-    width: 100%;
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
@@ -62,12 +85,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.rating-container {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
 }
 
 .rating {
@@ -89,7 +106,7 @@
     margin-left: 5px;
 }
 
-.review-item {
+.recommend-item {
     font-size: 0.8rem;
     font-family: 'Pretendard-Regular';
     color: #202123;
