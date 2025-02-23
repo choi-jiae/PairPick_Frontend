@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import "../../css/playReview.css";
+import "../../css/playReviewMore.css";
 import ColorThief from "colorthief";
 import { Button, Menu, MenuItem } from "@mui/material";
-import RecommenedCard from "../../components/contents/recommendCard";
 import PairReviewCard from "../../components/contents/pairReviewCard";
 import { useHeaderStore } from "../../store/headerStore";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import ActorReviewCard from "../../components/contents/actorReviewCard";
-const PlayReview = () => {
+import PairSelect from "../../components/contents/pairSelect";
+
+const PlayReviewMore = () => {
   const { id } = useParams<{ id: string }>();
   const play = {
     id: 1,
@@ -23,62 +23,12 @@ const PlayReview = () => {
       "http://www.대학로티켓.com/univticket/tuniv/ccontents/view.do?rbsIdx=27&contentsCode=20160925003",
       "http://ticket.yes24.com/Perf/52551?Gcode=009_400",
     ],
+    cast: [
+      { role: "유령", actors: ["전성우", "이재환", "송원근"] },
+      { role: "순희", actors: ["박지연", "박진주", "이봄소리"] },
+      { role: "영수", actors: ["신은총", "정시현", "윤철주"] },
+    ],
   };
-
-  const recommendList = [
-    {
-      title: "고스트 베이커리",
-      genre: "뮤지컬",
-      pair: ["박지연", "전성우", "신은총"],
-      pair_img: [
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
-      ],
-      feature: ["안정감 있어요🛏️", "귀여워요😍", "미러링 천재예요"],
-      ratings: [5.0, 5.0, 5.0],
-    },
-    {
-      title: "고스트 베이커리",
-      genre: "연극극",
-      pair: [
-        "박지연",
-        "전성우",
-        "신은총",
-        "박지연",
-        "전성우",
-        "신은총",
-        "박지연",
-        "전성우",
-        "신은총",
-      ],
-      pair_img: [
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
-      ],
-      feature: ["안정감 있어요🛏️", "귀여워요😍"],
-      ratings: [5.0, 5.0, 5.0],
-    },
-    {
-      title: "고스트 베이커리",
-      genre: "뮤지컬",
-      pair: ["박지연", "전성우", "신은총"],
-      pair_img: [
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
-      ],
-      feature: ["안정감 있어요🛏️", "귀여워요😍"],
-      ratings: [5.0, 5.0, 5.0],
-    },
-  ];
 
   const pairReviewList = [
     {
@@ -209,46 +159,47 @@ const PlayReview = () => {
       user_name: "jiaejiae",
       likes: 12,
     },
+    {
+      title: "고스트 베이커리",
+      genre: "뮤지컬",
+      pair: ["박지연", "전성우", "신은총"],
+      pair_img: [
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
+      ],
+      feature: ["안정감 있어요🛏️", "귀여워요😍"],
+      ratings: [5.0, 5.0, 5.0],
+      review_text: "너무 좋아요",
+      user_id: 16,
+      user_name: "jiaejiae",
+      likes: 12,
+    },
+    {
+      title: "고스트 베이커리",
+      genre: "뮤지컬",
+      pair: ["박지연", "전성우", "신은총"],
+      pair_img: [
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
+        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
+      ],
+      feature: ["안정감 있어요🛏️", "귀여워요😍"],
+      ratings: [5.0, 5.0, 5.0],
+      review_text: "너무 좋아요",
+      user_id: 17,
+      user_name: "jiaejiae",
+      likes: 12,
+    },
   ];
 
-  const actorReviewCardList = [
-    {
-      role: "유령",
-      actor_ids: [1, 2, 3],
-      actor_names: ["송원근", "전성우", "이재환"],
-      actor_imgs: [
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
-      ],
-    },
-    {
-      role: "유령",
-      actor_ids: [1, 2, 3],
-      actor_names: ["송원근", "전성우", "이재환"],
-      actor_imgs: [
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
-      ],
-    },
-    {
-      role: "유령",
-      actor_ids: [1, 2, 3],
-      actor_names: ["송원근", "전성우", "이재환"],
-      actor_imgs: [
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
-        "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/19/12/0400041912_45809_02.gif",
-      ],
-    },
-  ];
   const [isDarkImage, setIsDarkImage] = React.useState(false);
   const [color, setColor] = React.useState([0, 0, 0]);
   const setWhiteHeader = useHeaderStore((state) => state.setWhiteHeader);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const [sortItem, setSortItem] = React.useState("최신순");
+  const [actor, setActor] = React.useState("");
 
   const fetchImage = async () => {
     try {
@@ -374,24 +325,6 @@ const PlayReview = () => {
         </div>
       </div>
       <div className="review-bottom">
-        <div className="recommend-title">추천하는 페어</div>
-        <div className="recommend-cards">
-          {recommendList.length === 0 ? (
-            <div className="no-review">아직 작성된 리뷰가 없습니다.</div>
-          ) : (
-            recommendList.map((recommend, index) => (
-              <RecommenedCard
-                key={index}
-                title={recommend.title}
-                genre={recommend.genre}
-                pair={recommend.pair}
-                pair_img={recommend.pair_img}
-                feature={recommend.feature}
-                ratings={recommend.ratings}
-              />
-            ))
-          )}
-        </div>
         <div className="pair-title-sort-more">
           <div className="pair-title-sort">
             <div className="pair-title">페어 리뷰</div>
@@ -445,19 +378,19 @@ const PlayReview = () => {
               </Menu>
             </div>
           </div>
-          <Button
-            className="pair-more-button"
-            variant="text"
-            onClick={() => window.location.replace(`/play/${id}/review`)}
-            sx={{
-              fontFamily: "Pretendard-Regular",
-              color: "#666666",
-              fontSize: "0.8rem",
-            }}
-          >
-            페어 리뷰 더보기
-          </Button>
         </div>
+        <div className="pair-select">
+          {play.cast.map((cast, index) => (
+            <PairSelect
+              key={index}
+              role={cast.role}
+              actors={cast.actors}
+              selectedActor={""}
+              setActor={() => {}}
+            />
+          ))}
+        </div>
+
         {pairReviewList.length === 0 ? (
           <div className="no-review">아직 작성된 리뷰가 없습니다.</div>
         ) : (
@@ -479,22 +412,9 @@ const PlayReview = () => {
             </div>
           </div>
         )}
-
-        <div className="actor-title">배우 코멘트</div>
-        <div className="actor-cards">
-          {actorReviewCardList.map((actorReviewCard, index) => (
-            <ActorReviewCard
-              key={index}
-              role={actorReviewCard.role}
-              actor_ids={actorReviewCard.actor_ids}
-              actor_names={actorReviewCard.actor_names}
-              actor_imgs={actorReviewCard.actor_imgs}
-            />
-          ))}
-        </div>
       </div>
     </div>
   );
 };
 
-export default PlayReview;
+export default PlayReviewMore;
