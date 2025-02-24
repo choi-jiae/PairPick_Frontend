@@ -7,6 +7,8 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
 interface PairReviewCardProps {
+  play_id: number;
+  review_id: number;
   genre: string;
   pair: Array<string>;
   feature: Array<string>;
@@ -18,6 +20,8 @@ interface PairReviewCardProps {
 }
 
 const PairReviewCard = ({
+  play_id,
+  review_id,
   genre,
   pair,
   feature,
@@ -48,8 +52,12 @@ const PairReviewCard = ({
     setAnchorEl(null);
   };
 
+  const handleCardClick = () => {
+    window.location.replace(`/play/${play_id}/review/${review_id}`);
+  };
+
   return (
-    <div className="pair-card">
+    <div className="pair-card" onClick={handleCardClick}>
       <div className="pair-card-contents">
         <div className="pair-card-top">
           <div className="total-rating">

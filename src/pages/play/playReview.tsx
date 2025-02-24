@@ -82,6 +82,7 @@ const PlayReview = () => {
 
   const pairReviewList = [
     {
+      review_id: 1,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -98,6 +99,7 @@ const PlayReview = () => {
       likes: 12,
     },
     {
+      review_id: 2,
       title: "고스트 베이커리",
       genre: "연극",
       pair: ["박지연", "전성우", "신은총"],
@@ -114,6 +116,7 @@ const PlayReview = () => {
       likes: 12,
     },
     {
+      review_id: 3,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -130,6 +133,7 @@ const PlayReview = () => {
       likes: 12,
     },
     {
+      review_id: 4,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -146,6 +150,7 @@ const PlayReview = () => {
       likes: 12,
     },
     {
+      review_id: 5,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -162,6 +167,7 @@ const PlayReview = () => {
       likes: 12,
     },
     {
+      review_id: 6,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -178,6 +184,7 @@ const PlayReview = () => {
       likes: 12,
     },
     {
+      review_id: 7,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -194,6 +201,7 @@ const PlayReview = () => {
       likes: 12,
     },
     {
+      review_id: 8,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -466,6 +474,8 @@ const PlayReview = () => {
               {pairReviewList.map((pairReview, index) => (
                 <PairReviewCard
                   key={index}
+                  play_id={play.id}
+                  review_id={pairReview.review_id}
                   genre={pairReview.genre}
                   pair={pairReview.pair}
                   feature={pairReview.feature}

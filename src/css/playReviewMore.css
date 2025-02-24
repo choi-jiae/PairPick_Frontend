@@ -160,10 +160,12 @@
     height: 35px;
 }
 
-.pair-select {
+.pair-select-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 20px;
 }
 
 .pair-cards {

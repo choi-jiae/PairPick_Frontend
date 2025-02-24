@@ -23,7 +23,7 @@ const PairSelect = ({
             key={index}
             className="actor-button"
             variant="outlined"
-            onClick={() => setActor(actor)}
+            onClick={() => setActor(actor === selectedActor ? "" : actor)}
             style={{
               border: "1px solid #DA98E7",
               borderRadius: "20px",

@@ -32,6 +32,7 @@ const PlayReviewMore = () => {
 
   const pairReviewList = [
     {
+      review_id: 1,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -48,6 +49,7 @@ const PlayReviewMore = () => {
       likes: 12,
     },
     {
+      review_id: 2,
       title: "고스트 베이커리",
       genre: "연극",
       pair: ["박지연", "전성우", "신은총"],
@@ -64,6 +66,7 @@ const PlayReviewMore = () => {
       likes: 12,
     },
     {
+      review_id: 3,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -80,6 +83,7 @@ const PlayReviewMore = () => {
       likes: 12,
     },
     {
+      review_id: 4,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -96,6 +100,7 @@ const PlayReviewMore = () => {
       likes: 12,
     },
     {
+      review_id: 5,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -112,6 +117,7 @@ const PlayReviewMore = () => {
       likes: 12,
     },
     {
+      review_id: 6,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -128,6 +134,7 @@ const PlayReviewMore = () => {
       likes: 12,
     },
     {
+      review_id: 7,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -144,6 +151,7 @@ const PlayReviewMore = () => {
       likes: 12,
     },
     {
+      review_id: 8,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -160,6 +168,7 @@ const PlayReviewMore = () => {
       likes: 12,
     },
     {
+      review_id: 9,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -176,6 +185,7 @@ const PlayReviewMore = () => {
       likes: 12,
     },
     {
+      review_id: 10,
       title: "고스트 베이커리",
       genre: "뮤지컬",
       pair: ["박지연", "전성우", "신은총"],
@@ -199,7 +209,7 @@ const PlayReviewMore = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const [sortItem, setSortItem] = React.useState("최신순");
-  const [actor, setActor] = React.useState("");
+  const [selectedActor, setSelectedActor] = React.useState<string[]>([]);
 
   const fetchImage = async () => {
     try {
@@ -264,6 +274,7 @@ const PlayReviewMore = () => {
 
   useEffect(() => {
     fetchImage();
+    setSelectedActor(new Array(play.cast.length).fill(""));
     window.scrollTo(0, 0);
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -325,68 +336,71 @@ const PlayReviewMore = () => {
         </div>
       </div>
       <div className="review-bottom">
-        <div className="pair-title-sort-more">
-          <div className="pair-title-sort">
-            <div className="pair-title">페어 리뷰</div>
-            <div className="pair-sort">
-              <Button
-                id="sort-button"
-                variant="outlined"
-                aria-controls={open ? "sort-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? "true" : undefined}
-                onClick={handleClick}
+        <div className="pair-title-sort">
+          <div className="pair-title">페어 리뷰</div>
+          <div className="pair-sort">
+            <Button
+              id="sort-button"
+              variant="outlined"
+              aria-controls={open ? "sort-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
+              sx={{
+                border: "1px solid #DA98E7",
+                fontFamily: "Pretendard-Regular",
+                color: "#DA98E7",
+                fontSize: "1rem",
+                borderRadius: "20px",
+                padding: "3px 13px",
+              }}
+              startIcon={<KeyboardArrowDownIcon />}
+            >
+              {sortItem}
+            </Button>
+            <Menu
+              id="sort-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "sort-button",
+              }}
+            >
+              <MenuItem
+                onClick={handleClose}
                 sx={{
-                  border: "1px solid #DA98E7",
                   fontFamily: "Pretendard-Regular",
-                  color: "#DA98E7",
                   fontSize: "1rem",
-                  borderRadius: "20px",
-                  padding: "3px 13px",
-                }}
-                startIcon={<KeyboardArrowDownIcon />}
-              >
-                {sortItem}
-              </Button>
-              <Menu
-                id="sort-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                  "aria-labelledby": "sort-button",
                 }}
               >
-                <MenuItem
-                  onClick={handleClose}
-                  sx={{
-                    fontFamily: "Pretendard-Regular",
-                    fontSize: "1rem",
-                  }}
-                >
-                  최신순
-                </MenuItem>
-                <MenuItem
-                  onClick={handleClose}
-                  sx={{
-                    fontFamily: "Pretendard-Regular",
-                    fontSize: "1rem",
-                  }}
-                >
-                  별점순
-                </MenuItem>
-              </Menu>
-            </div>
+                최신순
+              </MenuItem>
+              <MenuItem
+                onClick={handleClose}
+                sx={{
+                  fontFamily: "Pretendard-Regular",
+                  fontSize: "1rem",
+                }}
+              >
+                별점순
+              </MenuItem>
+            </Menu>
           </div>
         </div>
-        <div className="pair-select">
+
+        <div className="pair-select-container">
           {play.cast.map((cast, index) => (
             <PairSelect
               key={index}
               role={cast.role}
               actors={cast.actors}
-              selectedActor={""}
-              setActor={() => {}}
+              selectedActor={selectedActor[index]}
+              setActor={(actor: string) => {
+                const newSelectedActor = [...selectedActor];
+                newSelectedActor[index] = actor;
+                setSelectedActor(newSelectedActor);
+              }}
             />
           ))}
         </div>
@@ -399,6 +413,8 @@ const PlayReviewMore = () => {
               {pairReviewList.map((pairReview, index) => (
                 <PairReviewCard
                   key={index}
+                  play_id={play.id}
+                  review_id={pairReview.review_id}
                   genre={pairReview.genre}
                   pair={pairReview.pair}
                   feature={pairReview.feature}
