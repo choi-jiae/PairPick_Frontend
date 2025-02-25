@@ -7,9 +7,12 @@ import PairReviewCard from "../../components/contents/pairReviewCard";
 import { useHeaderStore } from "../../store/headerStore";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PairSelect from "../../components/contents/pairSelect";
+import { useLocation } from "react-router-dom";
 
 const PlayReviewMore = () => {
   const { id } = useParams<{ id: string }>();
+  const location = useLocation();
+
   const play = {
     id: 1,
     image: "https://ticketimage.interpark.com/Play/image/small/24/24016412.gif",
@@ -209,7 +212,9 @@ const PlayReviewMore = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const [sortItem, setSortItem] = React.useState("최신순");
-  const [selectedActor, setSelectedActor] = React.useState<string[]>([]);
+  const [selectedActor, setSelectedActor] = React.useState<string[]>(
+    location.state.review_pair || []
+  );
 
   const fetchImage = async () => {
     try {
@@ -274,7 +279,6 @@ const PlayReviewMore = () => {
 
   useEffect(() => {
     fetchImage();
-    setSelectedActor(new Array(play.cast.length).fill(""));
     window.scrollTo(0, 0);
     window.addEventListener("scroll", handleScroll);
     return () => {

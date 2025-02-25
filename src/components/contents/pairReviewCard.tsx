@@ -5,6 +5,7 @@ import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useNavigate } from "react-router-dom";
 
 interface PairReviewCardProps {
   play_id: number;
@@ -37,6 +38,7 @@ const PairReviewCard = ({
   const play_rating = ["연기합", "대사합", "노선합"];
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const navigate = useNavigate();
 
   const myId = 1; // 로그인한 유저의 id를 받아와야 함
   // like 업데이트 할 수 있도록 변경
@@ -53,7 +55,7 @@ const PairReviewCard = ({
   };
 
   const handleCardClick = () => {
-    window.location.replace(`/play/${play_id}/review/${review_id}`);
+    navigate(`/play/${play_id}/review/${review_id}`);
   };
 
   return (

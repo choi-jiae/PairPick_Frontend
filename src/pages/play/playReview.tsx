@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../../css/playReview.css";
 import ColorThief from "colorthief";
 import { Button, Menu, MenuItem } from "@mui/material";
@@ -29,7 +29,7 @@ const PlayReview = () => {
     {
       title: "고스트 베이커리",
       genre: "뮤지컬",
-      pair: ["박지연", "전성우", "신은총"],
+      pair: ["전성우", "박지연", "신은총"],
       pair_img: [
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
@@ -41,17 +41,7 @@ const PlayReview = () => {
     {
       title: "고스트 베이커리",
       genre: "연극극",
-      pair: [
-        "박지연",
-        "전성우",
-        "신은총",
-        "박지연",
-        "전성우",
-        "신은총",
-        "박지연",
-        "전성우",
-        "신은총",
-      ],
+      pair: ["전성우", "박지연", "신은총"],
       pair_img: [
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
@@ -69,7 +59,7 @@ const PlayReview = () => {
     {
       title: "고스트 베이커리",
       genre: "뮤지컬",
-      pair: ["박지연", "전성우", "신은총"],
+      pair: ["전성우", "박지연", "신은총"],
       pair_img: [
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
@@ -136,7 +126,7 @@ const PlayReview = () => {
       review_id: 4,
       title: "고스트 베이커리",
       genre: "뮤지컬",
-      pair: ["박지연", "전성우", "신은총"],
+      pair: ["전성우", "박지연", "신은총"],
       pair_img: [
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
@@ -153,7 +143,7 @@ const PlayReview = () => {
       review_id: 5,
       title: "고스트 베이커리",
       genre: "뮤지컬",
-      pair: ["박지연", "전성우", "신은총"],
+      pair: ["전성우", "박지연", "신은총"],
       pair_img: [
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
@@ -170,7 +160,7 @@ const PlayReview = () => {
       review_id: 6,
       title: "고스트 베이커리",
       genre: "뮤지컬",
-      pair: ["박지연", "전성우", "신은총"],
+      pair: ["전성우", "박지연", "신은총"],
       pair_img: [
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
@@ -187,7 +177,7 @@ const PlayReview = () => {
       review_id: 7,
       title: "고스트 베이커리",
       genre: "뮤지컬",
-      pair: ["박지연", "전성우", "신은총"],
+      pair: ["전성우", "박지연", "신은총"],
       pair_img: [
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
@@ -204,7 +194,7 @@ const PlayReview = () => {
       review_id: 8,
       title: "고스트 베이커리",
       genre: "뮤지컬",
-      pair: ["박지연", "전성우", "신은총"],
+      pair: ["전성우", "박지연", "신은총"],
       pair_img: [
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20681_02130.gif",
         "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/10/03/0400041003_20749_021.gif",
@@ -257,6 +247,7 @@ const PlayReview = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const [sortItem, setSortItem] = React.useState("최신순");
+  const navigate = useNavigate();
 
   const fetchImage = async () => {
     try {
@@ -456,7 +447,7 @@ const PlayReview = () => {
           <Button
             className="pair-more-button"
             variant="text"
-            onClick={() => window.location.replace(`/play/${id}/review`)}
+            onClick={() => navigate(`/play/${id}/review`)}
             sx={{
               fontFamily: "Pretendard-Regular",
               color: "#666666",

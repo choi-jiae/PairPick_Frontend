@@ -2,6 +2,7 @@ import React from "react";
 import "../../css/recommendCard.css";
 import { Button, Chip } from "@mui/material";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
+import { useNavigate } from "react-router-dom";
 
 interface RecommenedCardProps {
   title: string;
@@ -21,9 +22,14 @@ const RecommenedCard = ({
   ratings,
 }: RecommenedCardProps) => {
   const total_rating = ratings.reduce((a, b) => a + b) / ratings.length;
-
+  const navigate = useNavigate();
   const musical_rating = ["연기합", "넘버합", "노선합"];
   const play_rating = ["연기합", "대사합", "노선합"];
+
+  const moreReviewClick = () => {
+    const currentUrl = window.location.pathname;
+    navigate(`${currentUrl}/review`, { state: { review_pair: pair } });
+  };
 
   return (
     <div className="recommend-card">
@@ -35,6 +41,7 @@ const RecommenedCard = ({
           </div>
           <Button
             variant="text"
+            onClick={moreReviewClick}
             sx={{
               fontFamily: "Pretendard-Regular",
               color: "#666666",
