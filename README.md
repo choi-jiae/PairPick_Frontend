@@ -1,4 +1,5 @@
-# Getting Started with Create React App
+# PairPick_Frontend
+연극 뮤지컬 페어별 리뷰 서비스
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
